@@ -45,8 +45,16 @@ const VKLogin: React.FC = () => {
           const authData = await VKID.Auth.exchangeCode(code, device_id);
           setUserData(authData);
           
-        alert("Успешный вход:")
+    
           console.log("Успешный вход:", authData);
+          if (authData?.access_token) {
+            // Получаем данные пользователя
+            const userInfo = await VKID.Auth.userInfo(authData.access_token);
+            console.log("Информация о пользователе:", userInfo);
+            setUserData(userInfo);
+          } else {
+            setError("Не удалось получить access_token");
+          }
         } catch (error) {
           console.error("Ошибка обмена кода VK:", error);
           alert("Ошибка обмена кода")
@@ -75,7 +83,7 @@ const VKLogin: React.FC = () => {
   return (
     <div>
       <h2>Вход через ВКонтакте</h2>
-      <p>v2 17.22</p>
+      <p>v3 17.38</p>
       <div ref={vkContainerRef}></div>
       {test && <p style={{ color: test === 'no auth' ? "red" : "green" }}>{test}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
