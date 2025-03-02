@@ -22,7 +22,7 @@ const VKLogin: React.FC = () => {
 
     VKID.Config.init({
       app: 53174679, // Замените на свой ID приложения
-      redirectUrl: "https://azbykamebeli.ru",
+      redirectUrl: "https://wed-izl1.vercel.app/login",
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
       scope: "",
@@ -75,6 +75,7 @@ const VKLogin: React.FC = () => {
   return (
     <div>
       <h2>Вход через ВКонтакте</h2>
+      <p>v2 17.22</p>
       <div ref={vkContainerRef}></div>
       {test && <p style={{ color: test === 'no auth' ? "red" : "green" }}>{test}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
