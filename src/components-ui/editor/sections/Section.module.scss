@@ -1,0 +1,77 @@
+@import "src/styles/media";
+@import "src/styles/parallax";
+@import "src/styles/colors";
+@import "src/styles/typography";
+@import "src/styles/transition";
+
+.section1,
+.section2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.section1 {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 16px;
+  border-radius: 16px;
+  border: 1px solid palette(white100);
+}
+
+.section2 {
+  @include transition(gap);
+
+  padding: 10px 10px 10px;
+  gap: 0;
+  border-radius: 10px;
+  background: palette(whiteGlass30);
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    //padding: 10px 16px 10px 10px;
+  }
+
+  .icon {
+    @include transition(transform);
+
+    padding: 5px 16px;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .list {
+    @include transition(transform);
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    //height: 1px;
+    width: 100%;
+    max-height: 0;
+    transform-origin: top center;
+    transform: scaleY(0);
+    overflow: hidden;
+  }
+
+  &.open {
+    gap: 16px;
+
+    .list {
+      transform: scaleY(1);
+      max-height: 100%;
+      //height: fit-content;
+      overflow: visible;
+    }
+
+    .icon {
+      transform: rotate(-180deg);
+    }
+  }
+}

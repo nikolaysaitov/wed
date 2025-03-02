@@ -1,0 +1,235 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.block {
+  display: flex;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      gap: 30px;
+    }
+  
+    @include tablet {
+      gap: 24px;
+    }
+  
+    @include mobile {
+      gap: 30px;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+  @include desktop {
+    height: 46px;
+  }
+
+  @include tablet {
+    height: 46px;
+  }
+}
+
+.headerActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+    color: palette(black80);
+    align-self: center;
+
+    @include desktop {
+      @include font(desktop, h3);
+    }
+  
+    @include tablet {
+      @include font(desktop, h3);
+    }
+  
+    @include mobile {
+      @include font(mobile, h3);
+    }
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.slider {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+    @include desktop {
+      gap: 12px;
+      padding: 0 0 28px 0;
+    }
+  
+    @include tablet {
+      gap: 20px;
+      padding: 0 0 24px 0;
+    }
+  
+    @include mobile {
+      gap: 20px;
+      padding: 0 0 39px 0;
+    }
+}
+
+.slider::-webkit-scrollbar {
+    height: 14px;
+    border: 1px solid palette(black40);
+    border-radius: 6px;
+  }
+
+.slider::-webkit-scrollbar-thumb {
+    background-color: palette(black40);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .grid {
+    display: grid;
+    margin: auto;
+    justify-content: center;
+
+    @include desktop {
+      grid-gap: 30px 12px;
+      grid-template-columns: repeat(3, 261px);  
+    }
+  
+    @include tablet {
+      grid-gap: 24px 12px;
+      grid-template-columns: repeat(2, 190px);  
+    }
+  
+    @include mobile {
+      grid-gap: 16px 8px;
+      grid-template-columns: repeat(1, 130px);  
+    }
+  }
+
+  .button {
+    border: 1px solid palette(black20);
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background-color: palette(white20);
+    border-radius: 12px;
+
+    @include desktop {
+      width: 261px;
+      height: 434px;
+    }
+  
+    @include tablet {
+      width: 190px;
+      height: 434px;
+    }
+  
+    @include mobile {
+      width: 130px;
+      height: 348px;
+    }
+  }
+
+  .plus {
+    cursor: pointer;
+    object-fit: contain;
+    z-index: 3;
+    width: 104px;
+    height: 104px;
+  
+    @include mobile {
+      width: 58px;
+      height: 58px;
+    }
+  }
+
+  .plus:hover {
+    transform: scale(1.02);
+  }
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px) brightness(95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+  
+    &Container {
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      width: 503px;
+      height: 299px;
+      background-color: #fff;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      cursor: default;
+      position: relative;
+      
+    }
+  
+    &Title {
+      @include font(desktop, h4);
+      color: palette(black80);
+    }
+  
+    &Text{
+      @include font(desktop, body-m);
+      color: palette(black40);
+    }
+  
+    &Buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+    }
+
+    &Exit {
+      background-image: url(../../../public/assets/svg/Exit.svg);
+      position: absolute;
+      top: 26px;
+      right: 26px;
+      width: 12px;
+      height: 12px;
+      z-index: 15;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    &Exit:hover {
+      transform: scale(1.02);
+    }
+  }
+  
+  .noPopup {
+    display: none;
+  }

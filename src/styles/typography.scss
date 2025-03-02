@@ -1,0 +1,325 @@
+$typography: (
+    none: (
+        font-family: null,
+        font-size: 0,
+        line-height: 0
+    ),
+    inherit: (
+        font-family: inherit,
+        font-size: inherit,
+        line-height: inherit,
+        font-weight: inherit,
+        font-style: inherit,
+        letter-spacing: inherit,
+        text-transform: inherit
+    ),
+    regular-48: (
+        font-family: "Open Sans",
+        font-size: 48px,
+        font-style: normal,
+        font-weight: 400,
+        line-height: 65px,
+        letter-spacing: 1.44px,
+        text-transform: uppercase,
+    ),
+    regular-32: (
+        font-family: "Open Sans",
+        font-size: 32px,
+        font-style: normal,
+        font-weight: 400,
+        line-height: 46px,
+        letter-spacing: 0.96px,
+        text-transform: uppercase
+    ),
+    regular-24: (
+        font-family: "Open Sans",
+        font-size: 24px,
+        font-style: normal,
+        font-weight: 400,
+        line-height: 33px,
+        letter-spacing: 0.72px,
+        text-transform: uppercase
+    ),
+    regular-16: (
+        font-family: "Open Sans",
+        font-size: 16px,
+        font-style: normal,
+        font-weight: 400,
+        line-height: 24px
+    ),
+    s1-desktop: (
+        font-family: "Open Sans",
+        font-size: 20px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 28px,
+    ),
+    s1-tablet: (
+        font-family: "Open Sans",
+        font-size: 16px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 24px
+    ),
+    s1-mobile: (
+        font-family: "Open Sans",
+        font-size: 14px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 20px,
+    ),
+    old-20b: (
+        font-family: "Open Sans",
+        font-size: 20px,
+        font-style: normal,
+        font-weight: 700,
+        line-height: 28px, /* 140% */
+        letter-spacing: 0.6px,
+    ),
+    bold-16: (
+        font-family: "Open Sans",
+        font-size: 16px,
+        font-style: normal,
+        font-weight: 700,
+        line-height: 24px, /* 150% */
+        letter-spacing: 0.48px
+    ),
+    bold-14: (
+        font-family: "Open Sans",
+        font-size: 14px,
+        font-style: normal,
+        font-weight: 700,
+        line-height: 20px /* 142.857% */
+    ),
+    bold-12: (
+        font-family: "Open Sans",
+        font-size: 12px,
+        font-style: normal,
+        font-weight: 700,
+        line-height: 20px /* 142.857% */,
+        letter-spacing: 0.36px
+    ),
+    light-20: (
+        font-family: "Open Sans",
+        font-size: 20px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 28px /* 140% */
+    ),
+    light-16: (
+        font-family: "Open Sans",
+        font-size: 16px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 24px /* 150% */
+    ),
+    light-12: (
+        font-family: "Open Sans",
+        font-size: 12px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 20px
+    ),
+    light-14: (
+        font-family: "Open Sans",
+        font-size: 14px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 20px
+    ),
+    light-11: (
+        font-family: "Open Sans",
+        font-size: 11px,
+        font-style: normal,
+        font-weight: 300,
+        line-height: 16px /* 145.455% */
+    ),
+);
+
+$typography-new: (
+    mobile: (
+        h1: (
+            font-family: "Open Sans",
+            font-size: 28px,
+            font-style: normal,
+            font-weight: 400,
+            line-height: 36.4px,
+            letter-spacing: 0.03em,
+            text-transform: uppercase,
+        ),
+        h2: (
+            font-family: "Open Sans",
+            font-size: 16px,
+            font-style: normal,
+            font-weight: 400,
+            line-height: 28px,
+            text-transform: uppercase,
+        ),
+        h3: (
+            font-family: "Open Sans",
+            font-size: 14px,
+            font-style: normal,
+            font-weight: 400,
+            line-height: 24px,
+            text-transform: uppercase,
+        ),
+        h4: (
+            font-family: "Open Sans",
+            font-size: 16px,
+            font-style: normal,
+            font-weight: 700,
+            line-height: 19.2px,
+            letter-spacing: 0.03em,
+        ),
+        body-m: (
+            font-family: "Open Sans",
+            font-size: 14px,
+            font-style: normal,
+            font-weight: 300,
+            line-height: 19.2px,
+        ),
+        body-s: (
+            font-family: "Open Sans",
+            font-size: 12px,
+            font-style: normal,
+            font-weight: 300,
+            line-height: 15.6px,
+        ),
+        button: (
+            font-family: "Open Sans",
+            font-size: 14px,
+            font-style: normal,
+            font-weight: 700,
+            line-height: 15.6px,
+        ),
+        hoverButton: (
+            font-family: "Open Sans",
+            font-size: 14px,
+            font-style: normal,
+            font-weight: 500,
+            line-height: 15.6px,
+        )
+    ),
+    desktop: (
+        h1: (
+            font-family: "Open Sans",
+            font-style: normal,
+            font-size: 48px,
+            font-weight: 400,
+            line-height: 58px,
+            letter-spacing: 0.02em,
+            text-transform: uppercase,
+        ),
+        h2: (
+            font-family: "Open Sans",
+            font-size: 32px,
+            font-style: normal,
+            font-weight: 400,
+            line-height: 46px,
+            letter-spacing: 0.03em,
+            text-transform: uppercase,
+        ),
+        h3: (
+            font-family: "Open Sans",
+            font-size: 20px,
+            font-style: normal,
+            font-weight: 400,
+            line-height: 24px,
+            text-transform: uppercase,
+        ),
+        h4: (
+            font-family: "Open Sans",
+            font-size: 20px,
+            font-style: normal,
+            font-weight: 700,
+            line-height: 24px,
+            letter-spacing: 0.03em,
+        ),
+        body-l: (
+            font-family: "Open Sans",
+            font-size: 20px,
+            font-style: normal,
+            font-weight: 300,
+            line-height: 28px,
+        ),
+        body-m: (
+            font-family: "Open Sans",
+            font-size: 16px,
+            font-style: normal,
+            font-weight: 300,
+            line-height: 24px,
+        ),
+        body-s: (
+            font-family: "Open Sans",
+            font-size: 14px,
+            font-style: normal,
+            font-weight: 300,
+            line-height: 19.6px,
+            letter-spacing: 0.03em,
+        ),
+        button: (
+            font-family: "Open Sans",
+            font-size: 16px,
+            font-style: normal,
+            font-weight: 700,
+            line-height: 19.2px,
+        ),
+        hoverButton: (
+            font-family: "Open Sans",
+            font-size: 16px,
+            font-style: normal,
+            font-weight: 500,
+            line-height: 19.2px,
+        )
+    )
+);
+
+@function typography($size, $level) {
+  @if not map-has-key($typography-new, $size) {
+    @error "Unknown typography $size '#{$size}'";
+  }
+
+  @if not map-has-key(map-get($typography-new, $size), $level) {
+    @error "Unknown typography $level '#{$level}'";
+  }
+
+  @return map-get(map-get($typography-new, $size), $level);
+}
+
+@mixin font($size, $level) {
+  font-family: font-family($size, $level);
+  font-size: font-size($size, $level);
+  line-height: line-height($size, $level);
+  font-weight: font-weight($size, $level);
+  font-style: font-style($size, $level);
+  letter-spacing: letter-spacing($size, $level);
+  text-transform: text-transform($size, $level);
+}
+
+@function font-family($size, $level: null) {
+  @return if($level == null, "Open Sans", map-get(typography($size, $level), font-family));
+}
+
+@function font-size($size, $level) {
+  @return map-get(typography($size, $level), font-size);
+}
+
+@function line-height($size, $level) {
+  @return map-get(typography($size, $level), line-height);
+}
+
+@function font-weight($size, $level) {
+  @return map-get(typography($size, $level), font-weight);
+}
+
+@function font-style($size, $level) {
+  @return map-get(typography($size, $level), font-style);
+}
+
+@function letter-spacing($size, $level) {
+  @return map-get(typography($size, $level), letter-spacing);
+}
+
+@function text-transform($size, $level) {
+  @return map-get(typography($size, $level), text-transform);
+}

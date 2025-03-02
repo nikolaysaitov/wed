@@ -1,0 +1,42 @@
+@mixin mobile {
+  @media screen and (max-width: 767.9px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) and (max-width: 1299.9px){
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin mobilePortrait  {
+  @media (orientation: portrait), (max-width: 767.9px) {
+    @content;
+  }
+}
+
+@mixin tabletPortrait {
+  @media (orientation: portrait) and (min-width: 768px){
+    @content;
+  }
+}
+
+@mixin desktopPortrait {
+  @media (orientation: portrait), (min-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin mobileLittleHeight {
+  @media screen and (max-height: 700px) {
+    @content;
+  }
+}
+

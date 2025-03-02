@@ -1,0 +1,256 @@
+@import "../../styles/typography";
+@import "../../styles/colors";
+@import "../../styles/media";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  border-top: 1px solid palette(black80);
+  margin: 50px 0 0;
+  padding: 37px 0 24px;
+  box-sizing: border-box;
+
+  @include mobile {
+    padding: 34px 0 28px;
+    margin: 25px 0 0;
+  }
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  width: 100%;
+
+  @include tablet {
+    gap: 38px;
+    max-width: 668px;
+  }
+
+  @include mobile {
+    gap: 30px;
+  }
+}
+
+.logo {
+  width: 74px;
+  height: 86px;
+
+  @include mobile {
+    width: 57px;
+    height: 65px;
+  }
+}
+
+.footerContacts {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 668px;
+    gap: 38px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 29px;
+  }
+}
+
+.footerFeedback {
+  max-width: 456px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include tablet {
+    max-width: 668px;
+    width: 100%;
+  }
+
+  @include mobile {
+    gap: 8px; 
+  }
+}
+
+.text {
+  @include font(desktop, h3);
+
+  @include tablet {
+    max-width: 468px;
+  }
+  
+  @include mobile {
+    @include font(mobile, h3);
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @include mobile {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+.copyright {
+  font-family: Open Sans;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  user-select: none;
+  border-radius: 0;
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid palette(black80);
+
+  @include desktop {
+    min-width: 250px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include mobile {
+    height: 36px;
+    @include font(mobile, body-s);
+  }
+
+  &::placeholder {
+    color: palette(black40);
+  }
+}
+
+.footerInfo {
+  display: flex;
+  gap: 35px;
+
+  @include tablet {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 32px;
+    max-width: 668px;
+    width: 100%;
+  }
+
+  @include mobile {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 668px;
+    width: 100%;
+  }
+
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    @include mobile {
+      gap: 8px;
+    }
+  }
+
+  &ContainerTitle {
+    @include font(desktop, button);
+
+    @include mobile {
+      @include font(mobile, button);
+    }
+  }
+
+  &ContainerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    user-select: none;
+    max-width: 160px;
+
+    @include mobile {
+      gap: 5px;
+      max-width: 135px;
+    }
+  }
+
+  &Socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 15px;
+    margin: 5px 0 0;
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  &SocialsNetwork {
+    width: 30px;
+    height: 30px;
+
+    @include mobile {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &SocialsIcon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &ContainerLink {
+    @include font(desktop, body-s);
+    text-align: left;
+    user-select: none;
+    color: palette(black60);
+    cursor: pointer;
+
+    @include mobile {
+      @include font(mobile, body-s);
+    }
+
+    &:visited {
+      color: palette(black60);
+    }
+
+    &:hover {
+      color: palette(black80);
+    }
+  }
+}
+
+.buttonBuy {
+  @include desktop {
+    width: 138px;
+  }
+}

@@ -1,0 +1,144 @@
+@import "../../../styles/media";
+@import "../../../styles/typography";
+@import "../../../styles/colors";
+
+.page {
+  max-width: 1140px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+
+  @include desktop {
+    max-width: calc(100% - 290px);
+  }
+
+  @include tablet {
+    max-width: calc(100% - 230px);
+    margin: 0 0 50px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+.myInvites {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  gap: 21px;
+}
+
+.title {
+  @include font(desktop, h2);
+
+  align-self: flex-start;
+  margin: 24px 0 0;
+  color: palette(black80);
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 130%; /* 36.4px */
+    letter-spacing: 0.84px;
+    align-self: center;
+    margin: 0;
+  }
+}
+
+.boxNoIvine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.noInviteText {
+  @include font(desktop, h3);
+}
+
+.popular{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-self: flex-end;
+  width: 100%;
+}
+
+.position {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+
+  &Text {
+    @include font(desktop, body-m);
+
+    color: palette(black80);
+  }
+
+  &ButtonLine {
+    background-image: url(../../../../public/assets/images/typeLine.svg);
+    background-size: contain;
+    width: 28px;
+    height: 23px;
+    border: none;
+    border-radius: 2px;
+  }
+
+  &Active {
+    background-color: white;
+  }
+
+  &NoActive {
+    background-color: transparent;
+  }
+
+  &ButtonGrid {
+    background-image: url(../../../../public/assets/images/typeGrid.svg);
+    background-size: contain;
+    width: 28px;
+    height: 23px;
+    border: none;
+    border-radius: 2px;
+  }
+}
+
+.containText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 100px 0;
+
+  @include tablet {
+    margin: 72px 0 92px;
+  }
+
+  @include mobile {
+    margin: 41px 0 57px;
+    gap: 16px;
+  }
+}
+
+.button {
+  width: 100%;
+  max-width: 241px;
+
+  @include tablet {
+    max-width: 380px;
+  }
+
+  @include mobile {
+    max-width: 266px;
+  }
+}

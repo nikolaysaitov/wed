@@ -1,0 +1,17 @@
+@import '../../styles/media';
+@import '../../styles/typography';
+@import '../../styles/colors';
+
+.errorText {
+  color: palette(red100);
+  margin: 0px !important;
+  @include mobile {
+    @include font(mobile, body-m);
+  }
+  @include desktop {
+    @include font(desktop, body-s);
+  }
+  @include tablet {
+    @include font(desktop, body-l);
+  }
+}

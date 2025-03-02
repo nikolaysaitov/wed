@@ -1,0 +1,64 @@
+@import "../../../../../../styles/media";
+@import "../../../../../../styles/parallax";
+@import "../../../../../../styles/colors";
+@import "../../../../../../styles/typography";
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: palette(whiteGlass30);
+  border: 1px solid palette(white100);
+}
+
+.cardTitle {
+  @include font(desktop, body-m);
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  color: palette(black80);
+  user-select: none;
+}
+
+.variants {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.variantsTitle {
+  @include font(desktop, body-m);
+}
+
+.variant {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  border: 1px solid palette(black60);
+  cursor: pointer;
+}

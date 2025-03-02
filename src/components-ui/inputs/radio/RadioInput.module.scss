@@ -1,0 +1,40 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/transition";
+@import "../../../../styles/typography";
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  @include font(desktop, body-m);
+
+  color: palette(black80);
+  cursor: pointer;
+}
+
+.border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid palette(black80);
+  border-radius: 2px;
+}
+
+.icon {
+  @include transition(opacity);
+
+  opacity: 0;
+  pointer-events: none;
+
+  &.checked {
+    opacity: 1;
+  }
+}

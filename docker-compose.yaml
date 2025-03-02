@@ -1,0 +1,15 @@
+version: '3.7'
+
+networks:
+    siteinvite_wedding-network:
+      external: true
+
+services:
+  frontend:
+    restart: always
+    image: "${TAG_COMMIT}"
+    container_name: frontend
+    ports:
+      - "80:80"
+    networks:
+      - siteinvite_wedding-network

@@ -1,0 +1,35 @@
+@import "../../../../styles/media";
+@import "../../../../styles/parallax";
+@import "../../../../styles/colors";
+@import "../../../../styles/typography";
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 30%;
+}
+
+.subSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 10px;
+  gap: 12px;
+  border-radius: 10px;
+  background: palette(whiteGlass30);
+}
+
+.subSectionHeader {
+  @include font(desktop, body-m);
+
+  text-align: center;
+}
+
+.subSectionText {
+  @include font(desktop, body-m);
+
+  color: palette(black40);
+}

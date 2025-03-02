@@ -1,0 +1,22 @@
+@import "../../styles/media.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 42px;
+  width: 100%;
+
+  @include mobile {
+    row-gap: 16px;
+    column-gap: 8px;
+  }
+}

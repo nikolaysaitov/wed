@@ -1,0 +1,10 @@
+@use '../../../../styles/colors';
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 60px 20px;
+  border-radius: 20px;
+  background: colors.palette(whiteGlass30);
+}

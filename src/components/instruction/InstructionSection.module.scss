@@ -1,0 +1,133 @@
+@import "../../styles/media";
+@import "../../styles/colors";
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 89px;
+  width: 100%;
+
+  @include mobile {
+    gap: 30px;
+    padding: 0 0 50px;
+  }
+
+  @include tablet {
+    gap: 95px;
+    padding: 35px 0 75px;
+  }
+
+  @include desktop {
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 50px 0 100px;
+  }
+}
+
+.points {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  width: 100%;
+
+  @include mobile {
+    min-width: 320px;
+    gap: 10px;
+  }
+
+  @include tablet {
+    gap: 20px;
+    min-width: 100%;
+  }
+
+  @include desktop {
+    gap: 20px;
+    max-width: 711px;
+  }
+}
+
+.title {
+  display: flex;
+  user-select: none;
+
+  @include mobile {
+    margin-top: 83px;
+    width: 230px;
+  }
+
+  @include tablet {
+    width: 325px;
+  }
+
+  @include desktop {
+    width: 100%;
+  }
+}
+
+.imageInstruction1 {
+  @include mobile {
+    display: none;
+  }
+
+  @include tablet {
+    width: 200px;
+    display: none;
+  }
+
+  @include desktop {
+    width: 55vw;
+    max-width: 800px;
+  }
+
+  &Position {
+    position: absolute;
+
+    @include mobile {
+      display: none;
+    }
+  
+    @include tablet {
+      top: 150px;
+      right: 0;
+    }
+  
+    @include desktop {
+      top: 10vh;
+      left: -180px;
+    }
+  }
+}
+
+.imageInstruction2 {
+  @include mobile {
+    width: 270px;
+  }
+
+  @include tablet {
+    width: 370px;
+  }
+
+  @include desktop {
+    width: 400px;
+  }
+
+  &Position {
+    position: absolute;
+
+    @include mobile {
+      top: -40px;
+      left: 27vw;
+    }
+  
+    @include tablet {
+      top: -90px;
+      left: 330px;
+    }
+  
+    @include desktop {
+      top: -250px;
+      left: 50vw;
+    }
+  }
+}

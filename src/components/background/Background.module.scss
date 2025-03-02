@@ -1,0 +1,12 @@
+@import "../../styles/defaults.scss";
+@import "../../styles/media";
+@import "../../styles/colors";
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100dvh + 150px);
+  background: palette(gradient);
+}

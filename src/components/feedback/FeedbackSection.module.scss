@@ -1,0 +1,90 @@
+@import "../../styles/media";
+@import "../../styles/colors";
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include mobile {
+    align-items: flex-end;
+    gap: 35px;
+    padding: 85px 0 60px;
+  }
+
+  @include tablet {
+    gap: 65px;
+    padding: 120px 0 75px;
+  }
+
+  @include desktop {
+    gap: 60px;
+    padding: 140px 0 40px;
+    min-height: 600px;
+  }
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+
+  @include mobile {
+    text-align: end;
+    width: 230px;
+  }
+}
+
+.cards {
+  @include desktop {
+    mask-image: linear-gradient(
+                    to right,
+                    transparent 0%,
+                    black 10%,
+                    black 90%,
+                    transparent 100%
+    );
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.imageFeedback {
+  @include mobile {
+    width: 150px;
+  }
+
+  @include tablet {
+    width: 245px;
+  }
+
+  @include desktop {
+    width: 277px;
+  }
+
+  &Position {
+    position: absolute;
+    z-index: -2;
+
+    @include mobile {
+      top: 50px;
+      left: 20px;
+    }
+  
+    @include tablet {
+      top: -100px;
+      left: 50vw;
+    }
+  
+    @include desktop {
+      top: -100px;
+      left: 54vw;
+    }
+  }
+}

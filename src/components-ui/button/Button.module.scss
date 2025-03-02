@@ -1,0 +1,114 @@
+@import "../../styles/typography";
+@import "../../styles/transition.scss";
+@import "../../styles/media";
+@import "../../styles/colors";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.default {
+  @include transition(transform);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  background: transparent;
+  user-select: none;
+  border-radius: 10px;
+  border: 1px solid palette(black80);
+  color: palette(black100);
+  outline: none;
+  appearance: none;
+
+  @include font(desktop, body-m);
+
+  @include mobile {
+    @include font(mobile, body-s);
+  }
+
+  &:visited {
+    color: palette(black100);
+  }
+
+  &:hover {
+    transform: scale(1.01);
+
+    @include desktop {
+      @include font(desktop, hoverButton);
+    }
+
+    @include tablet {
+      @include font(desktop, hoverButton);
+    }
+
+    @include mobile {
+      @include font(mobile, hoverButton);
+    }
+  }
+
+  &:active {
+    transform: scale(.95);
+  }
+}
+
+.wide {
+  height: 42px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-width: 138px;
+
+  @include tablet {
+    min-width: max-content;
+    align-self: flex-end;
+  }
+
+  @include mobile {
+    height: 32px;
+    min-width: max-content;
+    align-self: flex-end;
+  }
+}
+
+.high {
+  height: 42px;
+
+  @include mobile {
+    @include font(mobile, h2);
+    text-transform: none;
+    height: 42px;
+  }
+
+  &:hover {
+    @include font(mobile, hoverButton);
+    font-size: 16px;
+  }
+}
+
+.width {
+  @include tablet {
+    max-width: 154px;
+  }
+
+  @include mobile {
+    max-width: 114px;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+  background-color: palette(white20);
+}

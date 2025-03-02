@@ -1,0 +1,59 @@
+$palette: (
+        black100: #000000,
+        black80: #2b2b2b,
+        black60: #555454,
+        black40: #808080,
+        black20: #ababab,
+        white100: #fdfdfd,
+        white80: #f5f5f5,
+        white60: #ededee,
+        white40: #e6e6e6,
+        white20: #dedede,
+        lightPurple100: #a4b9f1,
+        lightPurple80: #aebfec,
+        lightPurple60: #b8c5e7,
+        lightPurple40: #c2cae1,
+        lightPurple20: #ccd0dc,
+        yellow100: #faf4bc,
+        yellow80: #f3eec1,
+        yellow60: #ebe9c6,
+        yellow40: #e5e2cc,
+        yellow20: #dddcd1,
+        red100: #de2935,
+        red80: #dc4c55,
+        red60: #db6e75,
+        red40: #d99095,
+        red20: #d8b3b6,
+        gradient: linear-gradient(180deg, #C3CBE2 0%, #CAD0DE 15%, #D2D4DA 35%, #D9D9D6 55%, #DFDED1 75%, #E6E3CD 90%, #E6E3CD 100%),
+        whiteGlass30: rgba(255, 255, 255, 0.30),
+        whiteGlass50: rgba(255, 255, 255, 0.50),
+        cardTitle: #4d5057
+        );
+
+@function palette($level) {
+  @if not map-has-key($palette, $level) {
+    @error "Unknown palette level '#{$level}'";
+  }
+
+  @return map-get($palette, $level);
+}
+
+$_config: null;
+
+@mixin set($config: null) {
+  $_config: $config !global;
+}
+
+@mixin unset() {
+  @include set();
+}
+
+@function get($name, $type: foreground) {
+  @if $_config == null {
+    @error "Theme config is not set.";
+  }
+
+  @return map-get(map-get($_config, $name), $type);
+}
+
+

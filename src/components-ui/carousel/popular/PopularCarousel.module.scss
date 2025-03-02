@@ -1,0 +1,19 @@
+@import "../../../styles/media";
+
+.container {
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+  padding: 30px;
+  overflow: hidden;
+
+  @include mobile {
+    overflow: visible;
+  }
+}
+
+.wrap {
+  display: flex!important;
+  justify-content: center;
+  width: 100%;
+}

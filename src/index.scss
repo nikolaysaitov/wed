@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Roboto:wght@500&display=swap');
+@import "styles/defaults";
+@import "styles/media";
+@import "styles/colors";
+
+#root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background: palette(gradient);
+}

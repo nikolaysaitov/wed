@@ -1,0 +1,66 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/parallax";
+@import "../../styles/colors";
+
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: fit-content;
+
+  @include mobile {
+    gap: 15px;
+  }
+
+  @include tablet {
+    gap: 32px;
+    padding: 50px 0;
+  }
+
+  @include desktop {
+    gap: 65px;
+  }
+}
+
+.title {
+  @include desktop {
+    margin-top: 43px;
+  }
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  width: 100%;
+  
+    @include tablet {
+      flex-direction: column;
+      gap: 23px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 13px;
+    }
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+
+  @include tablet {
+    gap: 23px;
+  }
+
+  @include mobile {
+    gap: 13px;
+  }
+}

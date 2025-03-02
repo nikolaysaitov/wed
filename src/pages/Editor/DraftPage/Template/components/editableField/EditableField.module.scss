@@ -1,0 +1,52 @@
+@import "../../../../../../styles/transition";
+@import "../../../../../../styles/colors";
+
+.root {
+  @include transition(border, background);
+
+  //width: fit-content;
+  position: relative;
+  background: transparent;
+  border: 5px solid transparent;
+  border-radius: 10px;
+
+  &::before {
+    @include transition(border, background);
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-40px) translateY(-20px);
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+    background: transparent;
+    border: 5px solid transparent;
+    border-radius: 10px;
+  }
+
+  &.focus {
+    z-index: 100;
+
+    &::before {
+      background: palette(whiteGlass30);
+      border: 5px solid palette(white100);
+    }
+  }
+}
+
+.input {
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  color: inherit;
+  margin: 0;
+  text-align: inherit;
+  font-variant-numeric: inherit;
+  font-feature-settings: inherit;
+}

@@ -1,0 +1,57 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 53px 68px;
+    border-radius: 20px;
+    border: 1px solid #FFF;
+    background: var(--white-glass-30, rgba(255, 255, 255, 0.30));
+  }
+  
+  .title {
+    @include font(desktop, h4);
+  
+    color: var(--black-80, #2B2B2B);
+    text-align: center;
+    line-height: 120%;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .input {
+    @include font(desktop, body-m);
+
+    width: 320px;
+    padding: 10px 0px;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--black-80, #2B2B2B);
+  }
+
+  .button {
+    display: flex;
+    height: 42px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: inherit;
+    border: 1px solid var(--black-80, #2B2B2B);
+    cursor: pointer;
+  }

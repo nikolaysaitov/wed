@@ -1,0 +1,159 @@
+@use "../../styles/typography";
+@import "../../styles/colors";
+@import "../../styles/transition";
+@import "../../styles/media";
+
+.slick-list {
+  @include transition(all);
+
+  @include mobile {
+    overflow: visible;
+  }
+
+  @include tablet {
+    overflow: visible;
+  }
+
+  @include desktop {
+    padding: 0 0 40px;
+  }
+}
+
+.slick-slide {
+  padding: 0;
+  width: 100%;
+  max-width: 450px;
+
+  @include tablet {
+    max-width: 550px;
+  }
+
+  @include mobile {
+    max-width: 297px;
+    padding: 0 5px;
+  }
+}
+
+//.slick-next,
+//.slick-prev {
+//  top: calc((100% - 83px) / 2);
+//  padding: 30px 10px;
+//}
+
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  gap: 7px;
+  padding: 30px 0 0;
+  z-index: 100;
+
+  & > li {
+    button {
+      @include transition(background);
+
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      background: palette(black20);
+      font-size: 0;
+      line-height: 0;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    &.slick-active {
+      button {
+        background: palette(lightPurple80);
+      }
+    }
+  }
+}
+
+.slick-track {
+  width: 100%;
+}
+
+.slick-slide {
+  .feedbackCard,
+  .priceCard {
+    @include transition(transform, background);
+  }
+
+  .feedbackCard {
+    transform-origin: center;
+
+    @include desktop {
+      transform: scale(.65);
+      backdrop-filter: none;
+    }
+  }
+
+  &.slick-center {
+    .feedbackCard {
+      background: palette(whiteGlass50);
+    }
+
+    &.slick-center {
+      .priceCard {
+        background: palette(whiteGlass50);
+        transform: scale(1.05);
+
+        @include mobile {
+          transform: none;
+        }
+      }
+    }
+
+
+    .feedbackCard {
+      @include desktop {
+        transform: scale(1) translateX(-20px);
+        width: 550px;
+        //
+        //-webkit-mask-image: linear-gradient(
+        //                to right,
+        //                transparent 0%,
+        //                black 10%,
+        //                black 90%,
+        //                transparent 100%
+        //);
+
+      }
+    }
+  }
+}
+
+#price .slick-slide {
+  width: 100%;
+  max-width: 394px;
+  padding: 0 25px;
+
+  @include mobile {
+    max-width: 296px;
+    padding: 0 8px;
+  }
+}
+
+#price .slick-slide {
+  &.slick-active {
+    transform: scale(1.05);
+
+    @include mobile {
+      transform: scale(1);
+    }
+  }
+}
+
+#advantages .slick-slide {
+  width: 300px;
+  padding: 0 5px;
+}
+
+#popular .slick-slider {
+  margin: 0;
+}
+
+.slick-slider {
+  margin: 0 0 50px ;
+}

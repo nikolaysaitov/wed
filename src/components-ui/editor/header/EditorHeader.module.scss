@@ -1,0 +1,16 @@
+@use "src/styles/colors";
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 50px;
+  padding: 13px 10px;
+  gap: 16px;
+  border-radius: 10px;
+  background: colors.palette(whiteGlass30);
+  border: 1px solid colors.palette(white100);
+
+}

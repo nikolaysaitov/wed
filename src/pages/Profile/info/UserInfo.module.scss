@@ -1,0 +1,182 @@
+@import "../../../styles/media";
+@import "../../../styles/typography";
+@import "../../../styles/colors";
+
+.page {
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 48px;
+
+  @include tablet {
+    margin: 0 0 50px;
+  }
+}
+
+.contain {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 87px;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 42px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.title {
+  @include font(desktop, h2);
+
+  align-self: flex-start;
+  margin: 24px 0 0;
+  color: palette(black80);
+  user-select: none;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 130%; /* 36.4px */
+    letter-spacing: 0.84px;
+    align-self: center;
+    margin: 0;
+  }
+}
+
+.subtitle {
+  @include font(desktop, h2);
+  color: palette(black80);
+  width: max-content;
+  margin: 0 0 12px;
+  user-select: none;
+
+  @include mobile {
+    @include font(mobile, h2);
+  }
+}
+
+.avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  gap: 16px;
+
+  @include tablet {
+    width: 100%;
+    gap: 20px;
+  }
+
+  @include mobile {
+    width: 100%;
+    gap: 14px;
+    justify-content: center;
+  }
+}
+
+.buttonLeft, .buttonRight {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: inherit;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+}
+
+.buttonLeft {
+  background-image: url(../../../../public/assets/svg/arrowLeftAvatar.svg);
+}
+
+.buttonRight {
+  background-image: url(../../../../public/assets/svg/arrowRightAvatar.svg);
+}
+
+.men,
+.women {
+  background-size: contain;
+  width: 262px;
+  height: 262px;
+  border-radius: 50%;
+  border: 1px solid #FFF;
+  @supports not (-webkit-backdrop-filter: blur(0)) {
+    transition: all 0.2s ease-out;
+  }
+  
+  @include tablet {
+    width: 208px;
+    height: 208px;
+  }
+
+  @include mobile {
+    width: 156px;
+    height: 156px;
+  }
+}
+
+.women {
+  background-image: url(../../../../public/assets/svg/girlIcon.svg);
+}
+
+.men {
+  background-image: url(../../../../public/assets/svg/boyIcon.svg);
+}
+
+.information {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 19px;
+}
+
+.form :last-child {
+  margin: 13px 0 0;
+}
+
+.input {
+  @include font(desktop, body-m);
+
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill {
+  transition: all 9999s ease-in-out;
+}
+
+.borderInput {
+  border-bottom: 1px solid palette(black80);
+}
+
+.input::placeholder {
+  color: #ACACAC;
+}

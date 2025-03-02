@@ -1,0 +1,88 @@
+@import "../../styles/media";
+@import "../../styles/colors";
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include desktop {
+    padding: 85px 0 50px;
+  }
+
+  @include tablet {
+    padding: 45px 0 50px;
+    gap: 30px;
+    max-width: 700px;
+  }
+
+  @include mobile {
+    padding: 50px 0 35px;
+    gap: 30px;
+  }
+}
+
+.advantages {
+  display: flex;
+  max-width: 1240px;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  z-index: 3;
+
+  @include mobile {
+    width: 100%;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  @include tablet {
+    gap: 20px;
+  }
+
+  @include desktop {
+    gap: 30px;
+  }
+}
+
+.imageAdvantages {
+  @include mobile {
+    width: 90px;
+    filter: blur(1px);
+  }
+
+  @include tablet {
+    width: 250px;
+  }
+
+  @include desktop {
+    width: 230px;
+    filter: blur(5px);
+  }
+
+  &Position {
+    position: absolute;
+
+    @include mobile {
+      top: 30px;
+      left: 52px;
+    }
+  
+    @include tablet {
+      top: -7vh;
+      left: 485px;
+    }
+  
+    @include desktop {
+      top: 550px;
+      left: 130px;
+    }
+  }
+}

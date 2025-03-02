@@ -1,0 +1,21 @@
+@import "../../../../styles/colors";
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  padding: 8px 0;
+  box-sizing: border-box;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  border-bottom: 1px solid palette(black20);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

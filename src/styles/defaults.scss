@@ -1,0 +1,92 @@
+@import "./media";
+@import "./typography";
+@import "./colors";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow-x: clip;
+}
+
+html,
+body,
+input,
+textarea,
+select,
+button {
+  font-family: "Inter Sans", sans-serif;
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+input,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0;
+}
+
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: unset;
+  padding: unset;
+}
+
+address {
+  font-style: normal;
+}
+
+h1 {
+  @include mobile {
+    @include font(mobile, h1);
+  }
+
+  @include tablet {
+    @include font(desktop, h1);
+  }
+
+  @include desktop {
+    @include font(desktop, h1);
+  }
+}
+
+h2 {
+  @include mobile {
+    @include font(mobile, h2);
+  }
+
+  @include tablet {
+    @include font(desktop, h2);
+  }
+
+  @include desktop {
+    @include font(desktop, h2);
+  }
+}

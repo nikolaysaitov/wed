@@ -1,0 +1,9 @@
+@import "../../../styles/media";
+
+.card {
+  margin: 0 auto;
+
+  @include tablet {
+    margin: 0 16px;
+  }
+}

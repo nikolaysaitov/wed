@@ -1,0 +1,42 @@
+@import "../../../../../../styles/media";
+@import "../../../../../../styles/parallax";
+@import "../../../../../../styles/colors";
+@import "../../../../../../styles/typography";
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background: palette(whiteGlass30);
+}
+
+.cardTitle {
+  @include font(desktop, body-m);
+
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.colorRootInput {
+  padding: 2px 5px;
+  height: 42px;
+}
+
+.cards,
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}

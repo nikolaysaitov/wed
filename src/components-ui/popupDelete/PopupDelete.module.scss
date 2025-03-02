@@ -1,0 +1,107 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 503px;
+  height: 299px;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid palette(white100);
+  background: palette(white100);
+  
+  @include tablet {
+    width: 439px;
+    height: 222px;
+    gap: 12px;
+  }
+
+  @include mobile {
+    width: 320px;
+    height: 192px;
+    gap: 12px;
+  }
+}
+  
+.title {
+  @include font(desktop, h4);
+  
+  color: palette(black80);
+  text-align: center;
+
+  @include mobile {
+    @include font(mobile, h4);
+  }
+}
+
+.subtitle {
+  @include font(desktop, body-m);
+  
+  color: palette(black40);
+  text-align: center;
+
+  @include tablet {
+    @include font(desktop, body-s);
+  }
+
+  @include mobile {
+    @include font(mobile, body-s);
+
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.button {
+  @include font(desktop, body-m);
+
+  height: 42px;
+  width: 162px;
+  border-radius: 10px;
+  background-color: inherit;
+  border: 1px solid var(--black-80, #2B2B2B);
+  cursor: pointer;
+
+  @include tablet {
+    @include font(mobile, body-s);
+  }
+
+  @include mobile {
+    @include font(mobile, body-s);
+  }
+}
+
+.button:active {
+  @include font(desktop, button);
+
+  @include tablet {
+    @include font(mobile, button);
+  }
+
+  @include mobile {
+    @include font(mobile, button);
+  }
+}

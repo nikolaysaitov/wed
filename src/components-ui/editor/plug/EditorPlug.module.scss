@@ -1,0 +1,16 @@
+@use "src/styles/typography";
+@use "src/styles/colors";
+
+.plug {
+  @include typography.font(desktop, body-m);
+
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+  gap: 24px;
+  border-radius: 16px;
+  background: colors.palette(whiteGlass30);
+  border: 1px solid colors.palette(white100);
+}

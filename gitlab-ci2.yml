@@ -1,0 +1,109 @@
+stages:
+  - build
+  - publish
+  - deploy
+
+variables:
+  NPM_CACHE_DIR: "$CI_PROJECT_DIR/.npm"
+  NODE_MODULES_DIR: "node_modules"
+  BUILD_DIR: "dist"
+  DEPLOY_REGISTRY: "registry.gitlab.com/wedding-app2/front"
+  DEPLOY_IMAGE_NAME: "wedding-landing"
+  DEPLOY_TAG: "$CI_COMMIT_REF_SLUG"
+
+default:
+  image: node:20-alpine
+
+cache:
+  paths:
+    - $NPM_CACHE_DIR
+    - $NODE_MODULES_DIR
+
+install:
+  stage: .pre
+  script:
+    - npm install --cache $NPM_CACHE_DIR --prefer-offline
+  artifacts:
+    paths:
+      - $NODE_MODULES_DIR
+    expire_in: 1 week
+
+build:
+  stage: build
+  script:
+    - npm run build
+  dependencies:
+    - install
+  artifacts:
+    expose_as: "build"
+    paths:
+      - $BUILD_DIR
+    expire_in: 1 day
+
+publish:
+  image: docker:stable
+  stage: publish
+  services:
+    - name: docker:dind
+      alias: thedockerhost
+
+  variables:
+    DOCKER_HOST: tcp://thedockerhost:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+
+  before_script:
+    - docker login -u aeza-deploy-token -p $DEPLOY_CLONE_TOKEN $DEPLOY_REGISTRY
+  script:
+    - docker build -t $DEPLOY_REGISTRY/$DEPLOY_IMAGE_NAME:$DEPLOY_TAG .
+    - docker push $DEPLOY_REGISTRY/$DEPLOY_IMAGE_NAME:$DEPLOY_TAG
+
+
+deploy:
+  stage: deploy
+  image: docker:stable
+  services:
+    - name: docker:dind
+      alias: thedockerhost
+  variables:
+    DOCKER_HOST: tcp://thedockerhost:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - docker login -u aeza-deploy-token -p $DEPLOY_CLONE_TOKEN $DEPLOY_REGISTRY
+  script:
+    - docker pull $DEPLOY_REGISTRY/$DEPLOY_IMAGE_NAME:$DEPLOY_TAG
+    - docker stop $DEPLOY_IMAGE_NAME || true
+    - docker rm $DEPLOY_IMAGE_NAME || true
+    - docker run -d --name $DEPLOY_IMAGE_NAME -p 8080:80 $DEPLOY_REGISTRY/$DEPLOY_IMAGE_NAME:$DEPLOY_TAG
+
+#deploy:
+#    stage: deploy
+#    script:
+#      - mkdir -p /home/wedding-app/front
+#      - cp -r $BUILD_DIR /home/wedding-app/front
+
+#deploy:
+#  stage: deploy
+#  before_script:
+#    - 'command -v ssh-agent >/dev/null || ( apk update && apk add openssh-client )'
+#    - eval $(ssh-agent -s)
+#    - echo "CI_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+#  script:
+#    - mkdir -p ~/.ssh
+#    - chmod 700 ~/.ssh
+#    - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "mkdir -p /home/deployer/app"
+#    - rsync -av --delete --exclude=".git" ./ $SERVER_USER@$SERVER_IP:/home/deployer/app/
+#    - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "cd /home/deployer/app && docker build -t $DOCKER_IMAGE_NAME ."
+#    - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker run -d -p 80:80 $DOCKER_IMAGE_NAME"
+
+
+
+#image: node:14.x
+#
+#build:
+#  script:
+#    - npm ci
+#    - npm run build
+#    - docker build -t $CI_REGISTRY_IMAGE/frontend:$CI_COMMIT_SHORT_SHA .
+#    - docker push $CI_REGISTRY_IMAGE/frontend:$CI_COMMIT_SHORT_SHA

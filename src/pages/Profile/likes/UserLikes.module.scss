@@ -1,0 +1,36 @@
+@import "../../../styles/media";
+@import "../../../styles/typography";
+@import "../../../styles/colors";
+
+.page {
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 48px;
+
+  @include tablet {
+    margin: 0 0 50px;
+  }
+}
+
+.title {
+  @include font(desktop, h2);
+
+  align-self: flex-start;
+  margin: 24px 0 0;
+  color: palette(black80);
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 130%; /* 36.4px */
+    letter-spacing: 0.84px;
+    align-self: center;
+    margin: 0;
+  }
+}

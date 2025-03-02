@@ -1,0 +1,184 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include mobile {
+    gap: 40px;
+    padding: 120px 0 100px;
+  }
+
+  @include tablet {
+    gap: 80px;
+    padding: 120px 0 50px;
+  }
+
+  @include desktop {
+    align-items: flex-end;
+    gap: 100px;
+    padding: 120px 0 100px;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include mobile {
+    gap: 10px;
+  }
+
+  @include tablet {
+    gap: 30px;
+  }
+
+  @include desktop {
+    gap: 30px;
+    width: 605px;
+    top: 103px;
+    left: 635px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mobile {
+    @include font(mobile, body-m);
+  }
+
+  @include tablet {
+    @include font(desktop, body-l);
+  }
+
+  @include desktop {
+    @include font(desktop, body-l);
+  }
+}
+
+.cards {
+  width: 100%;
+
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+  }
+}
+
+.card {
+  background: palette(whiteGlass50);
+}
+
+.cardSmall {
+  transform: scale(.95);
+}
+
+.imagePrice1Position,
+.imagePrice2Position,
+.imagePrice3Position {
+  position: absolute;
+}
+
+.imagePrice1 {
+  @include mobile {
+    width: 180px;
+  }
+
+  @include tablet {
+    width: 350px;
+  }
+
+  @include desktop {
+    width: 500px;
+  }
+
+  &Position {
+    @include mobile {
+      top: 0;
+      left:  180px;
+    }
+  
+    @include tablet {
+      top: -150px;
+      left:  330px;
+    }
+  
+    @include desktop {
+      top: -120px;
+      left:  50px;
+    }
+  }
+}
+
+.imagePrice2 {
+  @include mobile {
+    width: 150px;
+  }
+
+  @include tablet {
+    width: 250px;
+  }
+
+  @include desktop {
+    width: 150px;
+  }
+
+  &Position {
+    @include mobile {
+      top: 850px;
+      left:  200px;
+    }
+  
+    @include tablet {
+      top: 894px;
+      left:  50px;
+    }
+  
+    @include desktop {
+      top: 890px;
+      left:  320px;
+    }
+  
+  }
+}
+
+.imagePrice3 {
+  @include mobile {
+    width: 100px;
+  }
+
+  @include tablet {
+    width: 300px;
+  }
+
+  @include desktop {
+    width: 200px;
+    opacity: .4;
+  }
+
+  &Position {
+    @include mobile {
+      top: 550px;
+      left:  -15px;
+    }
+  
+    @include tablet {
+      top: 35vh;
+      right: 0;
+    }
+  
+    @include desktop {
+      top: 570px;
+      left:  900px;
+    }
+  }
+}

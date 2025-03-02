@@ -1,0 +1,276 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 100px 0;
+  box-sizing: border-box;
+  position: relative;
+
+  @include mobile {
+    gap: 50px;
+    padding: 50px 0 75px;
+    flex-direction: column-reverse;
+  }
+
+  @include tablet {
+    gap: 60px;
+    flex-direction: column-reverse;
+  }
+
+  @include desktop {
+    gap: 139px;
+  }
+}
+
+.carousel {
+  position: relative;
+  align-self: center;
+  background-image: url(../../../public/assets/svg/moсkup.svg);
+  background-size: contain;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-repeat: no-repeat;
+
+  @include mobile {
+    max-height: 500px;
+    height: 109.6vw;
+    width: 55vw;
+    max-width: 250px;
+    padding: 10px 9px;
+  }
+
+  @include tablet {
+    max-height: 600px;
+    height: 70vh;
+    width: 35vh;
+    max-width: 300px;
+    padding: 15px 13px;
+  }
+
+  @include desktop {
+    max-height: 650px;
+    height: 80vh;
+    width: 40vh;
+    max-width: 325px;
+    padding: 16px 14px;
+  }
+}
+
+.carouselMask {
+  z-index: 3;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  z-index: 3;
+  user-select: none;
+
+  @include mobile {
+    gap: 20px;
+  }
+
+  @include tablet {
+    gap: 45px;
+  }
+
+  @include desktop {
+    width: 655px;
+    gap: 40px;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include desktop {
+    margin-top: 25px;
+  }
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  gap: 0;
+
+    @include mobile {
+      gap: 12px;
+    }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mobile {
+    @include font(mobile, body-m);
+  }
+
+  @include tablet {
+    @include font(desktop, body-l);
+  }
+
+  @include desktop {
+    @include font(desktop, body-l);
+  }
+}
+
+.button {
+  position: absolute;
+  background: palette(whiteGlass50);
+  border-radius: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  border: none;
+  color: palette(black80);
+  cursor: pointer;
+  transition: all .2s ease;
+
+  @include mobile {
+    padding: 4px 6px;
+    bottom: 47px;
+    left: calc((100% - 136px) / 2);
+    width: 136px;
+  }
+
+  @include tablet {
+    padding: 4px 8px;
+    bottom: 54px;
+    left: calc((100% - 192px) / 2);
+    width: 192px;
+  }
+
+  @include desktop {
+    padding: 6px 8px;
+    bottom: 58px;
+    left: calc((100% - 188px) / 2);
+    width: 188px;
+  }
+
+  &Text {
+    @include font(desktop, button);
+
+    @include mobile {
+      @include font(mobile, button);
+    }
+  }
+
+  &Play {
+    object-fit: contain;
+    width: 40px;
+    height: 40px;
+
+    @include mobile {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(.98);
+  }
+}
+
+.imageDescription {
+  @include mobile {
+    width: 130px;
+  }
+
+  @include tablet {
+    width: 224px;
+  }
+
+  @include tabletPortrait {
+    width: 224px;
+  }
+
+  @include desktop {
+    width: 341px;
+  }
+
+  &Position {
+    position: absolute;
+    
+    @include mobile {
+      top: 0px;
+      right: 21px;
+    }
+  
+    @include tablet {
+      top: 30vh;
+      left: 65vw;
+    }
+  
+    @include tabletPortrait {
+      top: 15vh;
+      left: 60vw;
+    }
+  
+    @include desktop {
+      top: 40svh;
+      left: 53vw;
+    }
+  }
+}
+
+
+.imageDescription2 {
+  @include mobile {
+    width: 136px;
+  }
+
+  @include tablet {
+    width: 160px;
+  }
+
+  @include desktop {
+    width: 220px;
+    opacity: .7;
+  }
+
+  &Position {
+    position: absolute;
+    z-index: -2;
+
+    @include mobile {
+      top: 450px;
+      left: -16px;
+    }
+  
+    @include tablet {
+      top: 407px;
+      left: 45px;
+    }
+  
+    @include desktop {
+      top: 70svh;
+      left: 35vw;
+    }
+  }
+}

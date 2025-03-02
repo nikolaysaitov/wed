@@ -1,0 +1,113 @@
+@import "../../../styles/typography";
+@import "../../../styles/media";
+@import "../../../styles/colors";
+@import "../../../styles/transition";
+
+.container {
+  @include transition(background);
+
+  padding: 49px 48px;
+  border-radius: 20px;
+
+  @include mobile {
+    padding: 40px 20px;
+    gap: 24px;
+  }
+
+  @include tablet {
+    width: 394px;
+    gap: 25px;
+  }
+
+  @include desktop {
+    gap: 24px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+}
+
+.title {
+  color: #2B2B2B;
+  text-align: center;
+
+  @include desktop {
+    @include font(desktop, h4);
+  }
+
+  @include mobile {
+    @include font(mobile, h4);
+  }
+}
+
+.price {
+  color: palette(black60);
+
+  @include desktop {
+    @include font(desktop, body-l);
+  }
+}
+
+.conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  @include tablet {
+    max-width: 297px;
+  }
+
+  @include desktop {
+    max-width: 297px;
+  }
+}
+
+.check {
+  min-width: 15px;
+  min-height: 15px;
+}
+
+.noCheck {
+  min-width: 12px;
+  min-height: 12px;
+}
+
+.condition {
+  display: flex;
+  gap: 15px;
+  text-align: left;
+  color: palette(black80);
+
+  @include tablet {
+    width: 298px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    text-align: left;
+
+  }
+
+  &NoPresent {
+    color: palette(black40);
+    fill: palette(black40);
+  }
+}
+
+.text {
+  @include desktop {
+    @include font(desktop, body-s);
+
+    max-width: 318px;
+    width: 100%;
+  }
+
+  @include mobile {
+    @include font(mobile, body-s);
+  }
+}

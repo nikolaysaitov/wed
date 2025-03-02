@@ -1,0 +1,108 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+
+  @include desktop {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 100px;
+  }
+
+  @include tablet {
+    max-width: 1100px;
+    padding: 0 50px;
+  }
+
+  @include mobile {
+    max-width: 500px;
+    padding: 0 20px;
+  }
+}
+
+.contain {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 58px;
+  box-sizing: border-box;
+  margin: 50px 50px 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  align-items: flex-start;
+  gap: 36px;
+  padding-right: 30px;
+  padding-top: 36px;
+  border-right: 1px solid #555454;
+  margin: 0;
+  height: 65vh;
+  min-width: 200px;
+  max-height: 750px;
+
+  @include tablet {
+    padding-right: 15px;
+    margin: 0 0 50px;
+    min-width: max-content;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.title {
+  @include font(desktop, h3);
+
+  color: palette(black80);
+  user-select: none;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.item {
+  text-decoration: none;
+  user-select: none;
+}
+
+.link {
+  @include font(desktop, body-m);
+
+  color: palette(black80);
+  transition: all 0.1s ease-out;
+}

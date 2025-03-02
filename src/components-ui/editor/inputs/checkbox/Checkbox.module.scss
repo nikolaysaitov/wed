@@ -1,0 +1,56 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/transition";
+@import "../../../../styles/typography";
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid palette(black80);
+  border-radius: 2px;
+}
+
+.label {
+  @include font(desktop, body-m);
+
+  color: palette(black80);
+  cursor: pointer;
+}
+
+.icon {
+  @include transition(opacity);
+
+  opacity: 0;
+  pointer-events: none;
+
+  &.checked {
+    opacity: 1;
+  }
+}

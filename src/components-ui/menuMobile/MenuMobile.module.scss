@@ -1,0 +1,53 @@
+@import "../../styles/media";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+.menuMobile {
+    display: none;
+  
+    @include mobile{
+      display: flex;
+      width: 100%;
+      padding: 8px 10px;
+      box-sizing: border-box;
+      background: #cececc;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 20;
+    }
+  }
+  
+  .listMobile {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .itemMobile {
+    display: flex;
+    padding: 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    border: 0.5px solid palette(black60);
+    box-sizing: border-box;
+    width: max-content;
+    width: 100%;
+  }
+  
+  .iconMobile {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  .linkMobile {
+    @include font(mobile, body-s);
+  
+    color: palette(black80);
+  }

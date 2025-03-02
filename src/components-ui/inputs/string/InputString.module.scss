@@ -1,0 +1,47 @@
+@import "../../../styles/colors";
+@import "../../../styles/transition";
+@import "../../../styles/typography";
+
+.root {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.wide {
+  width: 100%;
+}
+
+.light {
+  background: palette(whiteGlass30);
+}
+
+.transparent {
+  background: transparent;
+}
+
+.bottom {
+  border-bottom: 1px solid palette(black80);
+}
+
+.solid {
+  border-radius: 10px;
+  border: 1px solid palette(black80);
+}
+
+.input {
+  @include font(desktop, body-m);
+
+  width: 100%;
+  text-align: start;
+
+  &[type="color"] {
+    height: 100%;
+  }
+
+  &[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+}

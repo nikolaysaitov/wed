@@ -1,0 +1,53 @@
+@import '../../../../styles/media';
+@import '../../../../styles/typography';
+@import '../../../../styles/colors';
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 19px;
+  .customDatePicker {
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    @include font(desktop, body-m);
+  }
+
+  .customDatePicker :last-child {
+    margin: 0;
+  }
+}
+
+.form > div:nth-child(3) {
+  margin-bottom: 32px;
+}
+
+.input {
+  @include font(desktop, body-m);
+
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill {
+  transition: all 9999s ease-in-out;
+}
+
+.borderInput {
+  border-bottom: 1px solid palette(black80);
+  @include font(desktop, body-m);
+}
+
+.borderInput :first-child {
+  border: none;
+  @include font(desktop, body-m);
+}
+
+.input::placeholder {
+  color: #acacac;
+}

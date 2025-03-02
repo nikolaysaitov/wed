@@ -1,0 +1,28 @@
+@import "../../../../../styles/colors";
+@import "../../../../../styles/transition";
+@import "../../../../../styles/typography";
+
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 302px;
+  height: 42px;
+  box-sizing: border-box;
+  border: 1px solid palette(black80);
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 8px;
+  box-sizing: border-box;
+  background: palette(white20);
+  border: 1px solid palette(black80);
+  border-radius: 10px;
+}

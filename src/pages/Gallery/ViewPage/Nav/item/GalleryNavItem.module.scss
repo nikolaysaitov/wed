@@ -1,0 +1,33 @@
+@use 'src/styles/typography';
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+
+  &:not(.editable) {
+    pointer-events: none;
+
+    &::before {
+      content: 'Шаблон в разработке';
+      position: absolute;
+      pointer-events: none;
+      background-color: rgba(255, 255, 255, 0.29);
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.img {
+  min-width: 350px;
+  height: 282px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.title {
+  @include typography.font(desktop, h3);
+}

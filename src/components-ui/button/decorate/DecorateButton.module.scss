@@ -1,0 +1,71 @@
+@import "../../../styles/typography";
+@import "../../../styles/media";
+@import "../../../styles/transition";
+@import "../../../styles/colors";
+
+.arrow{
+  @include transition(transform);
+
+  transform: translateX(0);
+
+  
+  @include mobile {
+    transform: translateX(-5px);
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  height: fit-content;
+
+  &:hover,
+  &:active {
+    .arrow {
+      transform: translateX(10px);
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  left: 0;
+  width: 114px;
+  height: 121px;
+
+  @include mobile {
+    width: 105px;
+    height: 105px;
+  }
+}
+
+.default {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 26px;
+  position: relative;
+  border: none;
+  padding: 0 0 0 60px;
+  z-index: 2;
+  cursor: pointer;
+  width: fit-content;
+  height: 145px;
+  background: transparent;
+  color: palette(black100);
+  user-select: none;
+  outline: none;
+  appearance: none;
+}
+
+.text {
+  @include font(desktop, h4);
+
+  @include mobile {
+    @include font(mobile, h4);
+    transform: translateX(-7px);
+  }
+}
