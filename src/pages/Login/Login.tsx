@@ -19,7 +19,7 @@ import styles from './Login.module.scss';
 
 import otherStyles from '../Profile/info/UserInfo.module.scss';
 import ValidationError from '../../components-ui/validationError/ValidationError.tsx';
-import VKLogin from './Vklogin.tsx';
+import VKLogin from './VKLogin.tsx';
 export const Login = () => {
   const navigate = useNavigate();
 
