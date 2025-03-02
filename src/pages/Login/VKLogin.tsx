@@ -25,7 +25,7 @@ const VKLogin: React.FC = () => {
       redirectUrl: "https://wed-izl1.vercel.app/login",
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
-      scope: "",
+      scope: "email",
     });
 
     const oAuth = new VKID.OAuthList();
