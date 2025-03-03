@@ -71,7 +71,7 @@ const VKLogin: React.FC = () => {
       redirectUrl: "https://siteinvite.ru/login",
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
-      scope: "", // Заполните нужными доступами по необходимости
+      scope: "email", // Заполните нужными доступами по необходимости
     });
 
     const oneTap = new VKID.OneTap();
@@ -86,21 +86,32 @@ const VKLogin: React.FC = () => {
           height: 40,
         },
       })
-      .on(VKID.WidgetEvents.ERROR, vkidOnError)
-      .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
-        const code = payload.code;
-        const deviceId = payload.device_id;
+      .on(VKID.WidgetEvents.ERROR, (error: string) => {
+        console.error("Ошибка VK:", error);
+        setError("Ошибка авторизации");
+      })
+      .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, async (payload) => {
+        try {
+          setTest("Успешный вход:");
+          const { code, device_id } = payload;
+          const authData = await VKID.Auth.exchangeCode(code, device_id);
+          setUserData(authData);
 
-        VKID.Auth.exchangeCode(code, deviceId).then(vkidOnSuccess).catch(vkidOnError);
+          console.log("Успешный вход:", authData);
+          if (authData?.access_token) {
+            // Получаем данные пользователя
+            const userInfo = await VKID.Auth.userInfo(authData.access_token);
+            console.log("Информация о пользователе:", userInfo);
+            setUserData(userInfo);
+          } else {
+            setError("Не удалось получить access_token");
+          }
+        } catch (error) {
+          console.error("Ошибка обмена кода VK:", error);
+          alert("Ошибка обмена кода");
+          setError("Ошибка обмена кода");
+        }
       });
-
-    function vkidOnSuccess(data) {
-      // Обработка полученного результата
-    }
-
-    function vkidOnError(error) {
-      // Обработка ошибки
-    }
     return () => {
       oneTap.destroy();
     };
