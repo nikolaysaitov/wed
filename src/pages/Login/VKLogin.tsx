@@ -93,7 +93,7 @@
 // };
 
 // export default VKLogin;
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -104,57 +104,83 @@ declare global {
 const VKLogin: React.FC = () => {
   const [userData, setUserData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [test, setTest] = useState("no auth");
 
   useEffect(() => {
     if (!window.VKIDSDK) {
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js';
+      const script = document.createElement("script");
+      script.src = "https://unpkg.com/@vkid/sdk@latest/dist-sdk/umd/index.js";
       script.async = true;
-      script.onload = () => console.log('VKID SDK загружен');
-      script.onerror = () => setError('Ошибка загрузки VKID SDK');
+      script.onload = () => console.log("VKID SDK загружен");
+      script.onerror = () => setError("Ошибка загрузки VKID SDK");
       document.body.appendChild(script);
     }
   }, []);
 
   const handleLogin = async () => {
     if (!window.VKIDSDK) {
-      setError('VKID SDK не загружен');
+      setError("VKID SDK не загружен");
       return;
     }
 
     const VKID = window.VKIDSDK;
 
     VKID.Config.init({
-      app: 53174679, // Ваш ID приложения
-      redirectUrl: 'https://wed-izl1.vercel.app/login',
+      app: 53174679, // ID вашего приложения
+      redirectUrl: "https://wed-izl1.vercel.app/login",
       responseMode: VKID.ConfigResponseMode.Callback,
-      scope: 'email'
+      scope: "email",
     });
 
     try {
-      const authData = await VKID.Auth.authorize();
-      console.log('Авторизация успешна:', authData);
-      if (authData?.access_token) {
-        const userInfo = await VKID.Auth.userInfo(authData.access_token);
-        console.log('Информация о пользователе:', userInfo);
-        setUserData(userInfo);
+      const authData = await VKID.Auth.openOAuthPopup();
+      console.log("Авторизация успешна:", authData);
+      
+      if (authData?.code) {
+        const tokenData = await VKID.Auth.exchangeCode(authData.code, authData.device_id);
+        console.log("Токены:", tokenData);
+        setUserData(tokenData);
+        setTest("Успешный вход!");
+
+        if (tokenData?.access_token) {
+          const userInfo = await VKID.Auth.userInfo(tokenData.access_token);
+          console.log("Информация о пользователе:", userInfo);
+          setUserData(userInfo);
+        } else {
+          setError("Не удалось получить access_token");
+        }
       } else {
-        setError('Не удалось получить access_token');
+        setError("Не удалось получить код авторизации");
       }
     } catch (error) {
-      console.error('Ошибка авторизации VK:', error);
-      setError('Ошибка авторизации');
+      console.error("Ошибка авторизации VK:", error);
+      setError("Ошибка авторизации");
     }
   };
 
   return (
     <div>
-      {/* Кастомная кнопка входа */}
-      <button onClick={handleLogin} style={{ padding: '10px', fontSize: '16px' }}>
+      <h2>Вход через ВКонтакте</h2>
+      <p>v3 17.38</p>
+
+      {/* Кастомная кнопка для входа */}
+      <button
+        onClick={handleLogin}
+        style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          backgroundColor: "#0077FF",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
         Войти через VK
       </button>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {test && <p style={{ color: test === "no auth" ? "red" : "green" }}>{test}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       {userData && <pre>{JSON.stringify(userData, null, 2)}</pre>}
     </div>
   );
