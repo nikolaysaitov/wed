@@ -96,7 +96,7 @@
 // };
 
 // export default VKLogin;
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './Login.module.scss';
 import { getUserData$, loginOAuth, OAuthRequest } from '@api/user';
 declare global {
@@ -107,7 +107,6 @@ declare global {
 
 const VKLogin: React.FC = () => {
   const vkContainerRef = useRef<HTMLDivElement>(null);
-  // const [userData, setUserData] = useState<any>(null);
 
   const fetchUserInfo = async ({ type, token }: OAuthRequest) => {
     await loginOAuth({ type: type, token: token }).then(({ newToken }) => {
@@ -134,7 +133,7 @@ const VKLogin: React.FC = () => {
       redirectUrl: `https://${domain}/login`,
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
-      scope: 'email' // Заполните нужными доступами по необходимости
+      scope: 'email' 
     });
 
     const oneTap = new VKID.OneTap();
@@ -158,29 +157,19 @@ const VKLogin: React.FC = () => {
           try {
             const { code, device_id } = payload;
             const authData = await VKID.Auth.exchangeCode(code, device_id);
-            //  setUserData(authData);
+          
 
             console.log('Успешный вход:', authData);
-            if (authData?.access_token) {
+            if (authData?.id_token) {
               const credentials: OAuthRequest = {
                 type: 'vk',
-                token: authData.access_token
+                token: authData.id_token
               };
 
               fetchUserInfo(credentials);
-              // const credentials2: OAuthRequest = {
-              //   type: 'vk',
-              //   token: code
-              // };
-
-              // fetchUserInfo(credentials2);
-
-              // Получаем данные пользователя
-              // const userInfo = await VKID.Auth.userInfo(authData.access_token);
-              // console.log('Информация о пользователе:', userInfo);
-              //setUserData(userInfo);
+            
             } else {
-              console.log('Не удалось получить access_token');
+              console.log('Не удалось получить id_token');
             }
           } catch (error) {
             console.error('Ошибка обмена кода VK:', error);
