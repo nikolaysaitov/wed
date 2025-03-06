@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { InputString } from '@ui/inputs/string/InputString.tsx';
@@ -11,8 +11,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import VK from '../../../public/assets/svg/icVkBW.svg';
-import Google from '../../../public/assets/svg/icGoogleBW.svg';
+// import VK from '../../../public/assets/svg/icVkBW.svg';
+// import Google from '../../../public/assets/svg/icGoogleBW.svg';
 import Apple from '../../../public/assets/svg/icAppleBW.svg';
 
 import styles from './Login.module.scss';
@@ -20,53 +20,15 @@ import styles from './Login.module.scss';
 import otherStyles from '../Profile/info/UserInfo.module.scss';
 import ValidationError from '../../components-ui/validationError/ValidationError.tsx';
 import VKLogin from './VKLogin.tsx';
+import YandexLogin from './YandexLogin.tsx';
 export const Login = () => {
-  const navigate = useNavigate();
-
-  const CLIENT_ID: string = 'e958609fb64e4af88eff14bc3cacf280';
-  const REDIRECT_URI: string = 'http://localhost:5200/login';
-  const handleLoginYa = () => {
-    const authUrl = `https://oauth.yandex.ru/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
-    window.location.href = authUrl;
-  };
-
-  const fetchUserInfo = async () => {
-    const token = localStorage.getItem('ya_token');
-
-    if (!token) return;
-
-    const response = await fetch('https://login.yandex.ru/info?format=json', {
-      headers: {
-        Authorization: `OAuth ${token}`
-      }
-    });
-
-    const data = await response.json();
-    console.log('data', data); // Выведет email, имя и другие данные
-  };
-  useEffect(() => {
-    const hash = window.location.hash.substring(1); // Получаем часть после #
-    const params = new URLSearchParams(hash);
-    const accessToken = params.get('access_token');
-    console.log('window.location.hash', window.location.hash);
-    if (accessToken) {
-      localStorage.setItem('ya_token', accessToken); // Сохраняем токен
-      navigate('/profile'); // Перенаправляем на страницу профиля
-    }
-  }, [navigate]);
-
-  
-
-  useEffect(()=>{
-    fetchUserInfo()
-  },[])
-
   const [currentUser, setCurrentUser] = useState<UserRequirements | undefined>(
     undefined
   );
   const [email, setEmail] = useState<string>('');
   const [code, setCode] = useState<string>('');
   const [disabledButton, setDisabledButton] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const SignInSchema = yup.object().shape({
     email: yup
@@ -124,9 +86,6 @@ export const Login = () => {
               <h4 className={styles.title}>Войти</h4>
               <div className={styles.box}>
                 <div>
-                  <button onClick={handleLoginYa}>Войти через Яндекс</button>
-                  <h1>Авторизация через ВКонтакте</h1>
-                  <VKLogin />
                   <div className={otherStyles.borderInput}>
                     <Controller
                       control={control}
@@ -159,6 +118,7 @@ export const Login = () => {
                 >
                   Получить код
                 </Button>
+
                 {/* <Button
                   wide
                   onClick={handleEmail}
@@ -169,20 +129,22 @@ export const Login = () => {
                 <div className={styles.alternative}>
                   <p className={styles.text}>или авторизация через:</p>
                   <div className={styles.socials}>
-                    <a href="#" className={styles.socialIconLink}>
+                    {/* <a href="#" className={styles.socialIconLink}>
                       <img
                         className={styles.socialIcon}
                         src={VK}
                         alt={'link to VK'}
                       />
-                    </a>
-                    <a href="#" className={styles.socialIconLink}>
+                    </a> */}
+                    <VKLogin />
+                    {/* <a href="#" className={styles.socialIconLink}>
                       <img
                         className={styles.socialIcon}
                         src={Google}
                         alt={'link to Google'}
                       />
-                    </a>
+                    </a> */}
+                    <YandexLogin />
                     <a href="#" className={styles.socialIconLink}>
                       <img
                         className={styles.socialIcon}
