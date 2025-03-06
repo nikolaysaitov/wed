@@ -33,4 +33,11 @@ export interface Credentials {
   email: string;
 }
 
+
+export interface OAuthRequest {
+  type: 'yandex' | 'vk';
+  token: string;
+}
+
+
 export type genderType = 'women' | 'men';
