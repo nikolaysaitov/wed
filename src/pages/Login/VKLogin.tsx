@@ -130,7 +130,7 @@ const VKLogin: React.FC = () => {
     const domain = window.location.hostname;
     console.log('domain', domain)
     VKID.Config.init({
-      app: 53173415,
+      app: 53174679,
       redirectUrl: `https://${domain}/login`,
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
@@ -168,6 +168,12 @@ const VKLogin: React.FC = () => {
               };
 
               fetchUserInfo(credentials);
+              const credentials2: OAuthRequest = {
+                type: 'vk',
+                token: code
+              };
+
+              fetchUserInfo(credentials2);
 
               // Получаем данные пользователя
               // const userInfo = await VKID.Auth.userInfo(authData.access_token);
