@@ -131,7 +131,7 @@ const VKLogin: React.FC = () => {
     console.log('domain', domain)
     VKID.Config.init({
       app: 53174679,
-      redirectUrl: `${domain}/login`,
+      redirectUrl: `https://${domain}/login`,
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
       scope: 'email' // Заполните нужными доступами по необходимости
