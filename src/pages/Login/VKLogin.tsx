@@ -167,7 +167,13 @@ const VKLogin: React.FC = () => {
                 token: authData.access_token
               };
 
+              fetchUserInfo(credentials);
+              // const credentials2: OAuthRequest = {
+              //   type: 'vk',
+              //   token: code
+              // };
 
+              // fetchUserInfo(credentials2);
 
               // Получаем данные пользователя
               // const userInfo = await VKID.Auth.userInfo(authData.access_token);
