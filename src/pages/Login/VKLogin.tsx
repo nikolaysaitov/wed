@@ -130,7 +130,7 @@ const VKLogin: React.FC = () => {
     const domain = window.location.hostname;
     console.log('domain', domain)
     VKID.Config.init({
-      app: 53174679,
+      app: 53173415,
       redirectUrl: `https://${domain}/login`,
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
