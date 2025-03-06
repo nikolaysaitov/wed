@@ -129,8 +129,8 @@ const VKLogin: React.FC = () => {
     const VKID = window.VKIDSDK;
 
     VKID.Config.init({
-      app: 53173415,
-      redirectUrl: 'https://siteinvite.ru/',
+      app: 53174679,
+      redirectUrl: 'https://siteinvite.ru/login',
       responseMode: VKID.ConfigResponseMode.Callback,
       source: VKID.ConfigSource.LOWCODE,
       scope: 'email' // Заполните нужными доступами по необходимости
