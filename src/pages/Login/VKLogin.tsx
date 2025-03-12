@@ -160,10 +160,10 @@ const VKLogin: React.FC = () => {
           
 
             console.log('Успешный вход:', authData);
-            if (authData?.id_token) {
+            if (authData?.access_token) {
               const credentials: OAuthRequest = {
                 type: 'vk',
-                token: authData.id_token
+                token: authData.access_token
               };
 
               fetchUserInfo(credentials);
