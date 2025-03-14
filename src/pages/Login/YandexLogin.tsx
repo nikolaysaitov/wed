@@ -7,7 +7,9 @@ const YandexLogin: React.FC = () => {
   const navigate = useNavigate();
 
   const CLIENT_ID: string = 'e958609fb64e4af88eff14bc3cacf280';
-  const REDIRECT_URI: string = 'http://localhost:5200/login';
+  const domain = window.location.hostname;
+  console.log('domain', domain)
+  const REDIRECT_URI: string = `https://${domain}/login`;
   const handleLoginYa = () => {
     const authUrl = `https://oauth.yandex.ru/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
     window.location.href = authUrl;
